@@ -105,49 +105,51 @@ function App() {
         </form>
       </div>
       <h1 className=" text-center">Products</h1>
-      <table className="products-list table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Product Name</th>
-            <th scope="col">Product Description</th>
-            <th scope="col">Product price</th>
-            <th scope="col">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product, i) => {
-            return (
-              <tr className="" key={i}>
-                <th scope="row">{i + 1}</th>
-                <td>{product.name}</td>
-                <td>{product.description}</td>
-                <td>$ {product.price}</td>
-                <td>
-                  <button
-                    className="btn btn-sm btn-primary"
-                    onClick={() => handleEdit(product)}
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className=" btn btn-danger btn-sm ms-2"
-                    onClick={() => handleDelete(product.id)}
-                  >
-                    delete
-                  </button>
-                  <button
-                    className=" btn btn-success btn-sm ms-2"
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    Add to Cart
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="container">
+        <table className="products-list table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Product Name</th>
+              <th scope="col">Product Description</th>
+              <th scope="col">Product price</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, i) => {
+              return (
+                <tr className="" key={i}>
+                  <th scope="row">{i + 1}</th>
+                  <td>{product.name}</td>
+                  <td>{product.description}</td>
+                  <td>$ {product.price}</td>
+                  <td className="d-flex flex-column flex-md-row gap-2">
+                    <button
+                      className="btn btn-sm btn-primary container-fluid"
+                      onClick={() => handleEdit(product)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className=" btn btn-danger btn-sm  container-fluid"
+                      onClick={() => handleDelete(product.id)}
+                    >
+                      delete
+                    </button>
+                    <button
+                      className=" btn btn-success btn-sm container-fluid"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add to Cart
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

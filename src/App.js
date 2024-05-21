@@ -47,7 +47,7 @@ function App() {
     dispatch(deleteProduct(id));
   };
   const handleAddToCart = (product) => {
-    console.log(product);
+    // console.log(product);
     dispatch(addProductToCart(product));
   };
   return (

@@ -27,6 +27,7 @@ function App() {
     // console.log(productDetails);
     if (isEditing) {
       dispatch(updateProduct(productDetails));
+      setIsEditing(false);
     } else {
       dispatch(addProduct({ ...productDetails, id: Date.now() }));
     }
@@ -57,7 +58,7 @@ function App() {
       <div className=" m-3 p-3">
         <h1 className=" text-center">Create Product</h1>
         <form
-          className="col-4 border p-3 rounded-2 mx-auto"
+          className="container-sm col-md-4 border p-3 rounded-2 mx-auto"
           onSubmit={handleSubmit}
         >
           <label htmlFor="name" className="form-label">
@@ -98,7 +99,7 @@ function App() {
           />
           <input
             type="submit"
-            value="Create Product"
+            value={isEditing ? "Update Product Details" : "Create Product"}
             className="btn btn-success container mt-3"
           />
         </form>
@@ -121,7 +122,7 @@ function App() {
                 <th scope="row">{i + 1}</th>
                 <td>{product.name}</td>
                 <td>{product.description}</td>
-                <td>{product.price}</td>
+                <td>$ {product.price}</td>
                 <td>
                   <button
                     className="btn btn-sm btn-primary"
